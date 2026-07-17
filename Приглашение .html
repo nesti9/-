@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анастасия & Денис — 26 августа 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --cream:#F8F5F0;
+    --ivory:#F1EBDF;
+    --beige:#E4D9C5;
+    --sage:#9CAA8C;
+    --olive:#5C6B45;
+    --deep:#2B3420;
+    --deep-2:#1E2617;
+    --ink:#2C2A22;
+    --ink-soft:#54523f;
+    --gold-line: rgba(232,223,199,0.55);
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:400;
+    letter-spacing:0.02em;
+  }
+
+  .eb{ font-family:'EB Garamond', serif; }
+
+  ::selection{ background:var(--olive); color:var(--cream); }
+
+  a{ color:inherit; }
+
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition: opacity 1.4s var(--ease), transform 1.4s var(--ease);
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal-delay-1.is-visible{ transition-delay:.15s; }
+  .reveal-delay-2.is-visible{ transition-delay:.3s; }
+  .reveal-delay-3.is-visible{ transition-delay:.45s; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{ transition:none; opacity:1; transform:none; }
+    .zoom-bg{ animation:none !important; }
+  }
+
+  /* ---------- atmospheric backgrounds (generated, no stock photos) ---------- */
+  .scene{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+
+  .zoom-bg{
+    position:absolute;
+    inset:-6%;
+    background-size:cover;
+    background-position:center;
+    animation: slowzoom 26s var(--ease) infinite alternate;
+    will-change:transform;
+    filter: saturate(0.82) sepia(0.12) contrast(1.04) brightness(0.96);
+  }
+  @keyframes slowzoom{
+    from{ transform:scale(1); }
+    to{ transform:scale(1.09); }
+  }
+
+  /* golden-hour meadow / arch light, built from layered gradients */
+  .bg-hero{
+    background:
+      radial-gradient(ellipse 60% 45% at 50% 18%, rgba(244,214,150,0.28), rgba(244,214,150,0) 60%),
+      linear-gradient(180deg, rgba(30,38,23,0.25) 0%, rgba(20,26,15,0.55) 55%, rgba(14,18,10,0.88) 100%),
+      url('images/hero.jpg');
+    background-size: cover;
+    background-position: 50% 35%;
+  }
+  .bg-final{
+    background:
+      radial-gradient(ellipse 50% 40% at 50% 30%, rgba(224,196,140,0.18), rgba(224,196,140,0) 60%),
+      linear-gradient(180deg, rgba(10,14,8,0.45) 0%, rgba(8,11,6,0.85) 100%),
+      url('images/final.jpg');
+    background-size: cover;
+    background-position: 50% 30%;
+  }
+  .bg-loc{
+    background:
+      linear-gradient(180deg, rgba(10,13,7,0.55), rgba(10,13,7,0.78)),
+      url('images/location.jpg');
+    background-size: cover;
+    background-position: 50% 40%;
+  }
+
+  .vignette{
+    position:absolute; inset:0;
+    box-shadow: inset 0 0 18vw rgba(0,0,0,0.45);
+    pointer-events:none;
+  }
+
+  /* fine botanical line art, drawn purely in SVG/CSS */
+  .branch-arch{
+    position:absolute;
+    bottom:-2%;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(700px, 92vw);
+    opacity:0.85;
+    pointer-events:none;
+  }
+
+  .grain{
+    position:absolute; inset:0;
+    opacity:0.05;
+    mix-blend-mode:overlay;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.4) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.2) 0 1px, transparent 1px 3px);
+    pointer-events:none;
+  }
+
+  /* ---------- hero ---------- */
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:var(--cream);
+    padding:0 6vw;
+  }
+  .hero-eyebrow{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:clamp(13px,1.4vw,16px);
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--beige);
+    opacity:0.85;
+    margin-bottom:28px;
+  }
+  .hero-names{
+    font-size:clamp(52px, 11vw, 128px);
+    line-height:1.02;
+    font-weight:400;
+    letter-spacing:0.01em;
+  }
+  .hero-amp{
+    display:block;
+    font-style:italic;
+    font-size:clamp(28px, 4.5vw, 50px);
+    margin:10px 0;
+    color:var(--sage);
+  }
+  .hero-date{
+    margin-top:38px;
+    font-family:'Manrope', sans-serif;
+    font-weight:400;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    font-size:clamp(12px,1.4vw,15px);
+    color:var(--beige);
+  }
+  .hero-line{
+    width:1px; height:56px;
+    background:linear-gradient(var(--gold-line), transparent);
+    margin:34px auto;
+  }
+  .hero-tagline{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:clamp(16px,2vw,20px);
+    color:var(--ivory);
+    max-width:34ch;
+    margin:0 auto;
+    line-height:1.6;
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:5vh;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    color:var(--beige);
+    opacity:0.75;
+  }
+  .scroll-cue span{
+    font-size:10px;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    font-family:'Manrope',sans-serif;
+  }
+  .scroll-line{
+    width:1px; height:34px;
+    background:var(--beige);
+    position:relative;
+    overflow:hidden;
+  }
+  .scroll-line::after{
+    content:'';
+    position:absolute;
+    top:-100%; left:0; width:100%; height:100%;
+    background:var(--cream);
+    animation:scrolldrip 2.2s ease-in-out infinite;
+  }
+  @keyframes scrolldrip{
+    0%{ top:-100%; }
+    60%{ top:100%; }
+    100%{ top:100%; }
+  }
+
+  /* ---------- simple ivory sections ---------- */
+  .section{
+    padding:min(18vh,150px) 8vw;
+    position:relative;
+  }
+  .section-narrow{
+    max-width:680px;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  .quote-block{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:clamp(20px,2.6vw,30px);
+    line-height:1.65;
+    color:var(--ink-soft);
+  }
+
+  .kicker{
+    font-family:'Manrope',sans-serif;
+    font-size:11px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--olive);
+    margin-bottom:22px;
+    display:inline-block;
+  }
+
+  .section-title{
+    font-size:clamp(32px,4.4vw,52px);
+    margin-bottom:26px;
+    color:var(--deep);
+  }
+
+  .divider{
+    width:64px; height:1px;
+    background:var(--olive);
+    margin:30px auto;
+    opacity:0.55;
+  }
+
+  /* ---------- format section ---------- */
+  .format-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    max-width:620px;
+    margin:52px auto 40px;
+  }
+  @media(max-width:640px){ .format-grid{ grid-template-columns:1fr; gap:38px; } }
+
+  .format-item{
+    text-align:center;
+  }
+  .format-mark{
+    width:46px; height:46px;
+    margin:0 auto 18px;
+    border:1px solid var(--olive);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0.75;
+  }
+  .format-mark svg{ width:20px; height:20px; stroke:var(--olive); fill:none; }
+  .format-label{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    color:var(--deep);
+    letter-spacing:0.02em;
+  }
+
+  .weather-note{
+    margin-top:44px;
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    max-width:44ch;
+    margin-left:auto;
+    margin-right:auto;
+    opacity:0.9;
+  }
+
+  /* ---------- location ---------- */
+  .location-card{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:var(--cream);
+    border:1px solid rgba(232,223,199,0.35);
+    padding:min(9vw,72px) min(9vw,90px);
+    max-width:520px;
+    margin:0 auto;
+  }
+  .location-card .kicker{ color:var(--sage); }
+  .location-card .section-title{ color:var(--cream); }
+  .location-card p{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:17px;
+    color:var(--ivory);
+    opacity:0.85;
+  }
+
+  /* ---------- dress code ---------- */
+  .dress-exclude{
+    font-family:'Manrope',sans-serif;
+    font-size:13px;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    margin:22px 0 50px;
+  }
+  .dress-exclude b{ color:var(--deep); font-weight:500; }
+
+  .swatch-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:34px 30px;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .swatch{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    width:96px;
+  }
+  .swatch-circle{
+    width:58px; height:58px;
+    border-radius:50%;
+    box-shadow:0 6px 16px rgba(60,60,40,0.16), inset 0 0 0 1px rgba(0,0,0,0.06);
+    transition: transform .5s var(--ease);
+  }
+  .swatch:hover .swatch-circle{ transform:translateY(-4px); }
+  .swatch-name{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+
+  /* ---------- final ---------- */
+  .final-inner{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:var(--cream);
+  }
+  .final-title{
+    font-size:clamp(44px,8vw,90px);
+    margin-bottom:26px;
+  }
+  .final-sign{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--beige);
+    letter-spacing:0.04em;
+    line-height:1.9;
+  }
+  .final-names{
+    font-family:'Cormorant Garamond', serif;
+    font-size:26px;
+    color:var(--cream);
+    margin-top:4px;
+  }
+
+  footer{
+    text-align:center;
+    padding:40px 6vw 50px;
+    font-family:'Manrope',sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:rgba(248,245,240,0.4);
+    background:var(--deep-2);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="scene" id="hero">
+  <div class="zoom-bg bg-hero"></div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+
+  <svg class="branch-arch" viewBox="0 0 700 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 40 C 150 -10, 550 -10, 680 40" stroke="#E8DFC7" stroke-width="1" opacity="0.5"/>
+    <g stroke="#DCE3C6" stroke-width="1" opacity="0.55" fill="none">
+      <path d="M60 44 q10 -18 26 -14 q-6 16 -26 14z"/>
+      <path d="M120 24 q10 -18 26 -14 q-6 16 -26 14z"/>
+      <path d="M200 10 q10 -18 26 -14 q-6 16 -26 14z"/>
+      <path d="M300 2 q10 -16 26 -13 q-6 15 -26 13z"/>
+      <path d="M400 2 q-10 -16 -26 -13 q6 15 26 13z"/>
+      <path d="M500 10 q-10 -18 -26 -14 q6 16 26 14z"/>
+      <path d="M580 24 q-10 -18 -26 -14 q6 16 26 14z"/>
+      <path d="M640 44 q-10 -18 -26 -14 q6 16 26 14z"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow reveal is-visible">Приглашение на свадьбу</div>
+    <h1 class="hero-names reveal is-visible reveal-delay-1">
+      Анастасия
+      <span class="hero-amp">&amp;</span>
+      Денис
+    </h1>
+    <div class="hero-date reveal is-visible reveal-delay-2">26 августа 2026</div>
+    <div class="hero-line reveal is-visible reveal-delay-2"></div>
+    <p class="hero-tagline reveal is-visible reveal-delay-3">Приглашаем разделить с нами этот особенный день.</p>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Далее</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ================= SHORT NOTE ================= -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-narrow reveal">
+    <p class="quote-block">Мы будем счастливы видеть вас рядом<br>в день рождения нашей семьи.</p>
+  </div>
+</section>
+
+<!-- ================= FORMAT ================= -->
+<section class="section" style="background:var(--ivory);">
+  <div class="section-narrow">
+    <span class="kicker reveal">Формат мероприятия</span>
+    <h2 class="section-title reveal reveal-delay-1">Выездная церемония<br>под открытым небом</h2>
+
+    <div class="format-grid">
+      <div class="format-item reveal reveal-delay-2">
+        <div class="format-mark">
+          <svg viewBox="0 0 24 24"><path d="M4 18h16M6 18V9l6-4 6 4v9M9 18v-5h6v5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="format-label">Фуршет</div>
+      </div>
+      <div class="format-item reveal reveal-delay-3">
+        <div class="format-mark">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M4 20c1.6-4 4.6-6 8-6s6.4 2 8 6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="format-label">Фотосессия</div>
+      </div>
+    </div>
+
+    <p class="weather-note reveal">Наша церемония пройдёт на открытой площадке. Рекомендуем учитывать погодные условия при выборе обуви и верхней одежды.</p>
+  </div>
+</section>
+
+<!-- ================= LOCATION ================= -->
+<section class="scene" style="min-height:80vh;">
+  <div class="zoom-bg bg-loc"></div>
+  <div class="grain"></div>
+
+  <div class="location-card reveal">
+    <span class="kicker">Место проведения</span>
+    <h2 class="section-title">Место проведения<br>сообщим немного позже</h2>
+    <p>Совсем скоро мы поделимся с вами всеми подробностями.</p>
+  </div>
+</section>
+
+<!-- ================= DRESS CODE ================= -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-narrow">
+    <span class="kicker reveal">Dress code</span>
+    <h2 class="section-title reveal reveal-delay-1">Нам будет очень приятно,<br>если вы поддержите атмосферу нашего праздника</h2>
+    <p class="dress-exclude eb reveal reveal-delay-2">Просим выбрать наряды в пастельных природных оттенках.<br>Без <b>белого</b> и <b>чёрного</b>.</p>
+
+    <div class="swatch-row reveal reveal-delay-3">
+      <div class="swatch"><div class="swatch-circle" style="background:#F3EEE0;"></div><div class="swatch-name">Кремовый</div></div>
+      <div class="swatch"><div class="swatch-circle" style="background:#F8F5EE;"></div><div class="swatch-name">Молочный</div></div>
+      <div class="swatch"><div class="swatch-circle" style="background:#E3D2AE;"></div><div class="swatch-name">Песочный</div></div>
+      <div class="swatch"><div class="swatch-circle" style="background:#D8C6A6;"></div><div class="swatch-name">Бежевый</div></div>
+      <div class="swatch"><div class="swatch-circle" style="background:#9CAA8C;"></div><div class="swatch-name">Шалфейный</div></div>
+      <div class="swatch"><div class="swatch-circle" style="background:#6B7A45;"></div><div class="swatch-name">Оливковый</div></div>
+      <div class="swatch"><div class="swatch-circle" style="background:#C9C7C0;"></div><div class="swatch-name">Светло-серый</div></div>
+      <div class="swatch"><div class="swatch-circle" style="background:#A7B4BE;"></div><div class="swatch-name">Пыльно-голубой</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="scene" id="final">
+  <div class="zoom-bg bg-final"></div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+
+  <svg class="branch-arch" style="bottom:auto; top:-2%; transform:translateX(-50%) rotate(180deg);" viewBox="0 0 700 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 40 C 150 -10, 550 -10, 680 40" stroke="#E8DFC7" stroke-width="1" opacity="0.4"/>
+    <g stroke="#DCE3C6" stroke-width="1" opacity="0.45" fill="none">
+      <path d="M60 44 q10 -18 26 -14 q-6 16 -26 14z"/>
+      <path d="M200 10 q10 -18 26 -14 q-6 16 -26 14z"/>
+      <path d="M400 2 q-10 -16 -26 -13 q6 15 26 13z"/>
+      <path d="M580 24 q-10 -18 -26 -14 q6 16 26 14z"/>
+    </g>
+  </svg>
+
+  <div class="final-inner">
+    <span class="kicker" style="color:var(--sage);">До скорой встречи</span>
+    <h2 class="final-title reveal">До встречи!</h2>
+    <div class="hero-line"></div>
+    <p class="final-sign reveal">С любовью,</p>
+    <p class="final-names reveal">Анастасия &amp; Денис</p>
+  </div>
+</section>
+
+<footer>26 · 08 · 2026</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.18 });
+
+  document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
