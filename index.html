@@ -336,6 +336,39 @@
     opacity:0.9;
   }
 
+  .detail-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:44px 34px;
+    max-width:580px;
+    margin:52px auto 0;
+  }
+  .detail-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    width:112px;
+  }
+  .detail-mark{
+    width:50px; height:50px;
+    border:1px solid var(--olive);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0.8;
+    transition: transform .5s var(--ease), opacity .5s var(--ease);
+  }
+  .detail-item:hover .detail-mark{ transform:translateY(-3px); opacity:1; }
+  .detail-mark svg{ width:20px; height:20px; stroke:var(--olive); fill:none; }
+  .detail-label{
+    font-family:'Cormorant Garamond', serif;
+    font-size:17px;
+    color:var(--deep);
+    text-align:center;
+    line-height:1.25;
+  }
+
   /* ---------- location ---------- */
   .location-card{
     position:relative;
@@ -599,6 +632,7 @@
   <div class="section-narrow">
     <span class="kicker reveal">Формат мероприятия</span>
     <h2 class="section-title reveal reveal-delay-1">Выездная церемония<br>под открытым небом</h2>
+    <p class="quote-block reveal reveal-delay-2" style="font-size:16px; max-width:38ch; margin:0 auto;">Камерный формат без рассадки и банкета — фуршет, музыка и тёплое общение на свежем воздухе.</p>
 
     <div class="format-grid">
       <div class="format-item reveal reveal-delay-2">
@@ -617,6 +651,47 @@
     </div>
 
     <p class="weather-note reveal">Наша церемония пройдёт на открытой площадке. Рекомендуем учитывать погодные условия при выборе обуви и верхней одежды.</p>
+  </div>
+</section>
+
+<!-- ================= DETAILS ================= -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-narrow">
+    <span class="kicker reveal">Детали дня</span>
+    <h2 class="section-title reveal reveal-delay-1">Что ещё вас ждёт</h2>
+
+    <div class="detail-grid reveal reveal-delay-2">
+      <div class="detail-item">
+        <div class="detail-mark">
+          <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="detail-label">Ведущий</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-mark">
+          <svg viewBox="0 0 24 24"><path d="M4 8.5h2.6L8 6h8l1.4 2.5H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.1"/></svg>
+        </div>
+        <div class="detail-label">Фотограф</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-mark">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.5a2.8 2.8 0 1 1 3.9 2.6c-.9.4-1.1 1-1.1 1.9" stroke-linecap="round"/><circle cx="12" cy="17.2" r=".4" fill="var(--olive)"/></svg>
+        </div>
+        <div class="detail-label">Свадебная<br>викторина</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-mark">
+          <svg viewBox="0 0 24 24"><path d="M4 5.5c2.5-1.3 5.3-1.3 8 0v13c-2.7-1.3-5.5-1.3-8 0v-13zM20 5.5c-2.5-1.3-5.3-1.3-8 0v13c2.7-1.3 5.5-1.3 8 0v-13z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="detail-label">Альбом<br>пожеланий</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-mark">
+          <svg viewBox="0 0 24 24"><rect x="4" y="8.5" width="16" height="11.5" rx="1.2"/><path d="M4 12.5h16M12 8.5v11.5" stroke-linecap="round"/><path d="M12 8.5c-1.6 0-2.6-1-2.6-2.2S10.4 4 12 5.3c1.6-1.3 2.6-.6 2.6.6S13.6 8.5 12 8.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="detail-label">Сувениры<br>гостям</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -681,7 +756,7 @@
 
       <div class="field">
         <label>ФИО</label>
-        <input type="text" name="ФИО" placeholder="Иванов Иван Иванова Анна" required>
+        <input type="text" name="ФИО" placeholder="Иванов Иван" required>
       </div>
 
       <div class="field">
