@@ -541,6 +541,44 @@
     opacity:0.8;
   }
 
+  .rsvp-success{
+    display:none;
+    text-align:center;
+    max-width:420px;
+    margin:50px auto 0;
+    padding:44px 30px;
+    border:1px solid rgba(92,107,69,0.35);
+  }
+  .rsvp-success-mark{
+    width:52px; height:52px;
+    margin:0 auto 22px;
+    border:1px solid var(--olive);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .rsvp-success-mark svg{ width:22px; height:22px; stroke:var(--olive); fill:none; }
+  .rsvp-success h3{
+    font-size:28px;
+    color:var(--deep);
+    margin-bottom:12px;
+  }
+  .rsvp-success p{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+
+  .rsvp-error{
+    display:none;
+    text-align:center;
+    margin-top:20px;
+    font-family:'Manrope',sans-serif;
+    font-size:13px;
+    color:#8a4a3a;
+  }
+
   /* ---------- final ---------- */
   .final-inner{
     position:relative;
@@ -739,7 +777,7 @@
     <h2 class="section-title reveal reveal-delay-1">Будем рады узнать,<br>что вы будете с нами</h2>
     <p class="quote-block reveal reveal-delay-2" style="font-size:16px;">Пожалуйста, заполните форму ниже до 1 августа 2026 года.</p>
 
-    <form class="rsvp-form reveal reveal-delay-3" action="https://formsubmit.co/nesti212121@mail.ru" method="POST">
+    <form class="rsvp-form reveal reveal-delay-3" id="rsvp-form" action="https://formsubmit.co/nesti212121@mail.ru" method="POST">
       <input type="hidden" name="_subject" value="Новый ответ на приглашение — Анастасия & Денис">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -767,10 +805,17 @@
         <input type="text" name="Комментарий" placeholder="Аллергии, пожелания и т.д.">
       </div>
 
-      <button type="submit" class="rsvp-submit">Подтвердить</button>
+      <button type="submit" class="rsvp-submit" id="rsvp-submit-btn">Подтвердить</button>
+      <p class="rsvp-error" id="rsvp-error">Не удалось отправить форму. Попробуйте ещё раз чуть позже.</p>
     </form>
 
-    <p class="rsvp-note reveal">Мы получим ваш ответ и будем очень рады видеть вас на нашем празднике.</p>
+    <div class="rsvp-success" id="rsvp-success">
+      <div class="rsvp-success-mark">
+        <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Спасибо!</h3>
+      <p>Мы получили ваш ответ и будем очень рады видеть вас на нашем празднике.</p>
+    </div>
   </div>
 </section>
 
@@ -841,6 +886,42 @@
   }
   tickCountdown();
   setInterval(tickCountdown, 1000);
+
+  // RSVP form — submit quietly in the background, no redirect away from the site
+  const rsvpForm = document.getElementById('rsvp-form');
+  if(rsvpForm){
+    rsvpForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const btn = document.getElementById('rsvp-submit-btn');
+      const errorBox = document.getElementById('rsvp-error');
+      const noteBox = document.getElementById('rsvp-note');
+      errorBox.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Отправляем…';
+
+      try{
+        const res = await fetch(rsvpForm.action, {
+          method: 'POST',
+          body: new FormData(rsvpForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if(res.ok){
+          rsvpForm.style.display = 'none';
+          if(noteBox) noteBox.style.display = 'none';
+          const success = document.getElementById('rsvp-success');
+          success.style.display = 'block';
+          success.classList.add('reveal');
+          requestAnimationFrame(()=> success.classList.add('is-visible'));
+        } else {
+          throw new Error('bad response');
+        }
+      } catch(err){
+        errorBox.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Подтвердить';
+      }
+    });
+  }
 </script>
 
 </body>
