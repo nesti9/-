@@ -281,29 +281,44 @@
 
   /* ---------- format section ---------- */
   .format-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:48px;
-    max-width:620px;
-    margin:52px auto 40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(28px,6vw,64px);
+    max-width:520px;
+    margin:56px auto 40px;
   }
-  @media(max-width:640px){ .format-grid{ grid-template-columns:1fr; gap:38px; } }
+  .format-divider{
+    width:1px;
+    height:64px;
+    background:linear-gradient(var(--gold-line), rgba(92,107,69,0.5), var(--gold-line));
+    opacity:0.7;
+    flex-shrink:0;
+  }
+  @media(max-width:520px){
+    .format-grid{ gap:20px; }
+    .format-divider{ height:48px; }
+  }
 
   .format-item{
     text-align:center;
+    flex:1;
+    max-width:150px;
   }
   .format-mark{
-    width:46px; height:46px;
-    margin:0 auto 18px;
+    width:52px; height:52px;
+    margin:0 auto 20px;
     border:1px solid var(--olive);
     border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    opacity:0.75;
+    opacity:0.8;
+    transition: transform .5s var(--ease), opacity .5s var(--ease);
   }
-  .format-mark svg{ width:20px; height:20px; stroke:var(--olive); fill:none; }
+  .format-item:hover .format-mark{ transform:translateY(-3px); opacity:1; }
+  .format-mark svg{ width:21px; height:21px; stroke:var(--olive); fill:none; }
   .format-label{
     font-family:'Cormorant Garamond', serif;
-    font-size:22px;
+    font-size:23px;
     color:var(--deep);
     letter-spacing:0.02em;
   }
@@ -658,15 +673,14 @@
     <h2 class="section-title reveal reveal-delay-1">Будем рады узнать,<br>что вы будете с нами</h2>
     <p class="quote-block reveal reveal-delay-2" style="font-size:16px;">Пожалуйста, заполните форму ниже до 1 августа 2026 года.</p>
 
-    <form class="rsvp-form reveal reveal-delay-3" action="https://formsubmit.co/ВАШ_EMAIL@example.com" method="POST">
+    <form class="rsvp-form reveal reveal-delay-3" action="https://formsubmit.co/nesti212121@mail.ru" method="POST">
       <input type="hidden" name="_subject" value="Новый ответ на приглашение — Анастасия & Денис">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://nesti9.github.io/-/spasibo.html">
 
       <div class="field">
         <label>ФИО</label>
-        <input type="text" name="ФИО" placeholder="Иванов Иван и Иванова Анна" required>
+        <input type="text" name="ФИО" placeholder="Иванов Иван" required>
       </div>
 
       <div class="field">
