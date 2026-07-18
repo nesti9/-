@@ -382,6 +382,117 @@
     text-align:center;
   }
 
+  /* ---------- countdown ---------- */
+  .countdown-row{
+    display:flex;
+    justify-content:center;
+    gap:clamp(18px,4vw,48px);
+    margin-top:48px;
+    flex-wrap:wrap;
+  }
+  .countdown-cell{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    min-width:72px;
+  }
+  .countdown-num{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(40px,6vw,64px);
+    font-weight:400;
+    color:var(--deep);
+    line-height:1;
+    font-variant-numeric: tabular-nums;
+  }
+  .countdown-label{
+    font-family:'Manrope',sans-serif;
+    font-size:10.5px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    opacity:0.75;
+  }
+
+  /* ---------- RSVP form ---------- */
+  .rsvp-form{
+    max-width:440px;
+    margin:50px auto 0;
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    gap:26px;
+  }
+  .field{
+    position:relative;
+  }
+  .field label{
+    display:block;
+    font-family:'Manrope',sans-serif;
+    font-size:10.5px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--olive);
+    margin-bottom:10px;
+  }
+  .field input,
+  .field select{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid rgba(92,107,69,0.4);
+    padding:10px 2px 12px;
+    font-family:'EB Garamond', serif;
+    font-size:17px;
+    color:var(--deep);
+    outline:none;
+    transition:border-color .4s var(--ease);
+    appearance:none;
+    -webkit-appearance:none;
+    border-radius:0;
+  }
+  .field select{ cursor:pointer; }
+  .field input::placeholder{ color:rgba(84,82,63,0.45); font-style:italic; }
+  .field input:focus,
+  .field select:focus{ border-bottom-color:var(--olive); }
+
+  .field-arrow{
+    position:absolute;
+    right:2px; bottom:16px;
+    pointer-events:none;
+    width:10px; height:10px;
+    border-right:1px solid var(--olive);
+    border-bottom:1px solid var(--olive);
+    transform:rotate(45deg);
+    opacity:0.7;
+  }
+
+  .rsvp-submit{
+    margin-top:8px;
+    align-self:center;
+    background:var(--deep);
+    color:var(--cream);
+    border:none;
+    padding:16px 46px;
+    font-family:'Manrope',sans-serif;
+    font-size:12px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition: background .4s var(--ease), transform .4s var(--ease);
+  }
+  .rsvp-submit:hover{ background:var(--olive); transform:translateY(-2px); }
+
+  .rsvp-note{
+    margin-top:22px;
+    text-align:center;
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    opacity:0.8;
+  }
+
   /* ---------- final ---------- */
   .final-inner{
     position:relative;
@@ -505,6 +616,21 @@
   </div>
 </section>
 
+<!-- ================= COUNTDOWN ================= -->
+<section class="section" style="background:var(--ivory);">
+  <div class="section-narrow">
+    <span class="kicker reveal">До нашего дня осталось</span>
+    <h2 class="section-title reveal reveal-delay-1">Мы считаем дни</h2>
+
+    <div class="countdown-row reveal reveal-delay-2" id="countdown">
+      <div class="countdown-cell"><div class="countdown-num" id="cd-days">00</div><div class="countdown-label">Дней</div></div>
+      <div class="countdown-cell"><div class="countdown-num" id="cd-hours">00</div><div class="countdown-label">Часов</div></div>
+      <div class="countdown-cell"><div class="countdown-num" id="cd-mins">00</div><div class="countdown-label">Минут</div></div>
+      <div class="countdown-cell"><div class="countdown-num" id="cd-secs">00</div><div class="countdown-label">Секунд</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= DRESS CODE ================= -->
 <section class="section" style="background:var(--cream);">
   <div class="section-narrow">
@@ -522,6 +648,49 @@
       <div class="swatch"><div class="swatch-circle" style="background:#C9C7C0;"></div><div class="swatch-name">Светло-серый</div></div>
       <div class="swatch"><div class="swatch-circle" style="background:#A7B4BE;"></div><div class="swatch-name">Пыльно-голубой</div></div>
     </div>
+  </div>
+</section>
+
+<!-- ================= RSVP ================= -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-narrow">
+    <span class="kicker reveal">Подтверждение присутствия</span>
+    <h2 class="section-title reveal reveal-delay-1">Будем рады узнать,<br>что вы будете с нами</h2>
+    <p class="quote-block reveal reveal-delay-2" style="font-size:16px;">Пожалуйста, заполните форму ниже до 1 августа 2026 года.</p>
+
+    <form class="rsvp-form reveal reveal-delay-3" action="https://formsubmit.co/ВАШ_EMAIL@example.com" method="POST">
+      <input type="hidden" name="_subject" value="Новый ответ на приглашение — Анастасия & Денис">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://nesti9.github.io/-/spasibo.html">
+
+      <div class="field">
+        <label>ФИО</label>
+        <input type="text" name="ФИО" placeholder="Иванов Иван и Иванова Анна" required>
+      </div>
+
+      <div class="field">
+        <label>Количество человек (от пары / семьи)</label>
+        <select name="Количество гостей" required>
+          <option value="" disabled selected hidden>Выберите количество</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5+</option>
+        </select>
+        <div class="field-arrow"></div>
+      </div>
+
+      <div class="field">
+        <label>Комментарий (необязательно)</label>
+        <input type="text" name="Комментарий" placeholder="Аллергии, пожелания и т.д.">
+      </div>
+
+      <button type="submit" class="rsvp-submit">Подтвердить</button>
+    </form>
+
+    <p class="rsvp-note reveal">Мы получим ваш ответ и будем очень рады видеть вас на нашем празднике.</p>
   </div>
 </section>
 
@@ -546,7 +715,7 @@
     <h2 class="final-title reveal">До встречи!</h2>
     <div class="hero-line"></div>
     <p class="final-sign reveal">С любовью,</p>
-    <p class="final-names reveal">Денис &amp; Анастасия</p>
+    <p class="final-names reveal">Анастасия &amp; Денис</p>
   </div>
 </section>
 
@@ -563,6 +732,35 @@
   }, { threshold:0.18 });
 
   document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>io.observe(el));
+
+  // countdown to the wedding day
+  const weddingDate = new Date('2026-08-26T15:00:00+03:00').getTime();
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tickCountdown(){
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+    if(diff <= 0){
+      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>{
+        const el = document.getElementById(id);
+        if(el) el.textContent = '00';
+      });
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    const d = document.getElementById('cd-days');
+    const h = document.getElementById('cd-hours');
+    const m = document.getElementById('cd-mins');
+    const s = document.getElementById('cd-secs');
+    if(d) d.textContent = pad(days);
+    if(h) h.textContent = pad(hours);
+    if(m) m.textContent = pad(mins);
+    if(s) s.textContent = pad(secs);
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
 </script>
 
 </body>
