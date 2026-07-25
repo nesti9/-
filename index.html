@@ -6,7 +6,7 @@
 <title>Анастасия & Денис — 26 августа 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&family=Marck+Script&display=swap" rel="stylesheet">
 <style>
 
   :root{
@@ -43,6 +43,25 @@
   }
 
   .eb{ font-family:'EB Garamond', serif; }
+
+  .script-heading{
+    font-family:'Marck Script', cursive;
+    font-weight:400;
+    color:var(--deep);
+    font-size:clamp(34px,5.5vw,54px);
+    line-height:1.25;
+    margin-bottom:28px;
+  }
+
+  .gift-note{
+    max-width:40ch;
+    margin:0 auto;
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:16px;
+    line-height:1.75;
+    color:var(--ink-soft);
+  }
 
   ::selection{ background:var(--olive); color:var(--cream); }
 
@@ -111,10 +130,10 @@
   }
   .bg-loc{
     background:
-      linear-gradient(180deg, rgba(10,13,7,0.55), rgba(10,13,7,0.78)),
-      url('images/location.jpeg');
+      linear-gradient(180deg, rgba(10,13,7,0.5), rgba(10,13,7,0.72)),
+      url('images/venue.jpg');
     background-size: cover;
-    background-position: 50% 40%;
+    background-position: 50% 42%;
   }
 
   .vignette{
@@ -388,6 +407,64 @@
     font-size:17px;
     color:var(--ivory);
     opacity:0.85;
+  }
+
+  .map-link{
+    display:inline-block;
+    margin-top:28px;
+    font-family:'Manrope',sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--cream);
+    text-decoration:none;
+    border-bottom:1px solid rgba(248,245,240,0.55);
+    padding-bottom:6px;
+    transition: border-color .4s var(--ease), opacity .4s var(--ease);
+  }
+  .map-link:hover{ border-color:var(--cream); opacity:0.85; }
+
+  /* ---------- schedule timeline ---------- */
+  .timeline{
+    max-width:340px;
+    margin:56px auto 0;
+    text-align:left;
+    position:relative;
+  }
+  .timeline::before{
+    content:'';
+    position:absolute;
+    left:7px; top:6px; bottom:6px;
+    width:1px;
+    background: linear-gradient(var(--gold-line), rgba(92,107,69,0.55), var(--gold-line));
+  }
+  .timeline-item{
+    position:relative;
+    padding-left:36px;
+    margin-bottom:36px;
+  }
+  .timeline-item:last-child{ margin-bottom:0; }
+  .timeline-item::before{
+    content:'';
+    position:absolute;
+    left:0; top:6px;
+    width:15px; height:15px;
+    border-radius:50%;
+    border:1px solid var(--olive);
+    background:var(--cream);
+  }
+  .timeline-time{
+    font-family:'Cormorant Garamond', serif;
+    font-size:27px;
+    color:var(--deep);
+    line-height:1.1;
+  }
+  .timeline-text{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--ink-soft);
+    margin-top:5px;
   }
 
   /* ---------- dress code ---------- */
@@ -698,7 +775,8 @@
 <!-- ================= SHORT NOTE ================= -->
 <section class="section" style="background:var(--cream);">
   <div class="section-narrow reveal">
-    <p class="quote-block">Мы будем счастливы видеть вас рядом<br>в день рождения нашей семьи.</p>
+    <h2 class="script-heading">Дорогие родные и друзья!</h2>
+    <p class="quote-block">Один день в этом году станет для нас особенно важным, и мы хотим провести его в кругу близких и родных людей!<br><br>С большим удовольствием приглашаем вас на нашу свадьбу!</p>
   </div>
 </section>
 
@@ -706,8 +784,8 @@
 <section class="section" style="background:var(--ivory);">
   <div class="section-narrow">
     <span class="kicker reveal">Формат мероприятия</span>
-    <h2 class="section-title reveal reveal-delay-1">Выездная церемония<br>под открытым небом</h2>
-    <p class="quote-block reveal reveal-delay-2" style="font-size:16px; max-width:38ch; margin:0 auto;">Камерный формат без рассадки и банкета — фуршет, музыка и тёплое общение на свежем воздухе.</p>
+    <h2 class="section-title reveal reveal-delay-1">Церемония на открытом воздухе<br>и праздничный банкет</h2>
+    <p class="quote-block reveal reveal-delay-2" style="font-size:16px; max-width:40ch; margin:0 auto;">Сначала — тёплая церемония под открытым небом, а затем праздничный вечер с рассадкой, музыкой и банкетом.</p>
 
     <div class="format-grid">
       <div class="format-item reveal reveal-delay-2">
@@ -723,9 +801,39 @@
         </div>
         <div class="format-label">Фотосессия</div>
       </div>
+      <div class="format-divider"></div>
+      <div class="format-item reveal reveal-delay-3">
+        <div class="format-mark">
+          <svg viewBox="0 0 24 24"><path d="M12 3v11M12 14a4 4 0 0 0 4-4V5H8v5a4 4 0 0 0 4 4zM8 5H6.5a2 2 0 0 0 0 4H8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 21h8M12 14v7" stroke-linecap="round"/></svg>
+        </div>
+        <div class="format-label">Банкет</div>
+      </div>
     </div>
 
-    <p class="weather-note reveal">Наша церемония пройдёт на открытой площадке. Рекомендуем учитывать погодные условия при выборе обуви и верхней одежды.</p>
+    <p class="weather-note reveal">Церемония пройдёт на открытой площадке. Рекомендуем учитывать погодные условия при выборе обуви и верхней одежды.</p>
+  </div>
+</section>
+
+<!-- ================= SCHEDULE ================= -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-narrow">
+    <span class="kicker reveal">Программа дня</span>
+    <h2 class="section-title reveal reveal-delay-1">14:00 — 22:00</h2>
+
+    <div class="timeline reveal reveal-delay-2">
+      <div class="timeline-item">
+        <div class="timeline-time">14:00</div>
+        <div class="timeline-text">Сбор гостей, фуршет</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">15:00</div>
+        <div class="timeline-text">Церемония, фотосессия</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">16:00 – 22:00</div>
+        <div class="timeline-text">Банкет</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -761,14 +869,24 @@
 </section>
 
 <!-- ================= LOCATION ================= -->
-<section class="scene" style="min-height:80vh;">
+<section class="scene" style="min-height:85vh;">
   <div class="zoom-bg bg-loc"></div>
   <div class="grain"></div>
 
   <div class="location-card reveal">
     <span class="kicker">Место проведения</span>
-    <h2 class="section-title">Место проведения<br>сообщим немного позже</h2>
-    <p>Совсем скоро мы поделимся с вами всеми подробностями.</p>
+    <h2 class="section-title">«Астория плюс»</h2>
+    <p>г. Барнаул, ул. 5-й Кооперативный проезд, 61а</p>
+    <a class="map-link" href="https://yandex.ru/maps/?text=Барнаул%2C%20ул.%205-й%20Кооперативный%20проезд%2C%2061а" target="_blank" rel="noopener">Посмотреть на карте →</a>
+  </div>
+</section>
+
+<!-- ================= GIFTS ================= -->
+<section class="section" style="background:var(--ivory);">
+  <div class="section-narrow">
+    <span class="kicker reveal">Детали</span>
+    <h2 class="section-title reveal reveal-delay-1">Подарки</h2>
+    <p class="gift-note reveal reveal-delay-2">Если вы желаете поздравить нас по случаю праздника, мы будем рады денежным подаркам и обещаем найти им самое лучшее применение!</p>
   </div>
 </section>
 
@@ -792,18 +910,7 @@
   <div class="section-narrow">
     <span class="kicker reveal">Dress code</span>
     <h2 class="section-title reveal reveal-delay-1">Нам будет очень приятно,<br>если вы поддержите атмосферу нашего праздника</h2>
-    <p class="dress-exclude eb reveal reveal-delay-2">Просим выбрать наряды в пастельных природных оттенках.<br>Без <b>белого</b> и <b>чёрного</b>.</p>
-
-    <div class="swatch-row reveal reveal-delay-3">
-      <div class="swatch"><div class="swatch-circle" style="background:#F3EEE0;"></div><div class="swatch-name">Кремовый</div></div>
-      <div class="swatch"><div class="swatch-circle" style="background:#F8F5EE;"></div><div class="swatch-name">Молочный</div></div>
-      <div class="swatch"><div class="swatch-circle" style="background:#E3D2AE;"></div><div class="swatch-name">Песочный</div></div>
-      <div class="swatch"><div class="swatch-circle" style="background:#D8C6A6;"></div><div class="swatch-name">Бежевый</div></div>
-      <div class="swatch"><div class="swatch-circle" style="background:#9CAA8C;"></div><div class="swatch-name">Шалфейный</div></div>
-      <div class="swatch"><div class="swatch-circle" style="background:#6B7A45;"></div><div class="swatch-name">Оливковый</div></div>
-      <div class="swatch"><div class="swatch-circle" style="background:#C9C7C0;"></div><div class="swatch-name">Светло-серый</div></div>
-      <div class="swatch"><div class="swatch-circle" style="background:#A7B4BE;"></div><div class="swatch-name">Пыльно-голубой</div></div>
-    </div>
+    <p class="gift-note reveal reveal-delay-2">Просим избегать полностью белого и полностью чёрного образа.<br><br>Мужские костюмы чёрного цвета — уместны, а лёгкие чёрно-белые детали в образе только приветствуются.</p>
   </div>
 </section>
 
@@ -812,7 +919,7 @@
   <div class="section-narrow">
     <span class="kicker reveal">Подтверждение присутствия</span>
     <h2 class="section-title reveal reveal-delay-1">Будем рады узнать,<br>что вы будете с нами</h2>
-    <p class="quote-block reveal reveal-delay-2" style="font-size:16px;">Пожалуйста, заполните форму ниже до 10 августа 2026 года.</p>
+    <p class="quote-block reveal reveal-delay-2" style="font-size:16px;">Пожалуйста, заполните форму ниже до 1 августа 2026 года.</p>
 
     <form class="rsvp-form reveal reveal-delay-3" id="rsvp-form" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="bbc9e3d7-f791-4339-b05e-7e9982ee8d3e">
@@ -822,7 +929,7 @@
 
       <div class="field">
         <label>ФИО</label>
-        <input type="text" name="ФИО" placeholder="Ивановы Иван и Анна & Семья Ивановых" required>
+        <input type="text" name="ФИО" placeholder="Иванов Иван" required>
       </div>
 
       <div class="field">
@@ -834,7 +941,7 @@
           </label>
           <label class="radio-option">
             <input type="radio" name="Присутствие" value="К сожалению, не получится" required>
-            <span>Не приду</span>
+            <span>К сожалению, не получится</span>
           </label>
         </div>
       </div>
@@ -850,6 +957,20 @@
           <option>5+</option>
         </select>
         <div class="field-arrow"></div>
+      </div>
+
+      <div class="field">
+        <label>Что предпочитаете из напитков?</label>
+        <div class="radio-row">
+          <label class="radio-option">
+            <input type="radio" name="Напитки" value="Алкогольные" required>
+            <span>Алкогольные</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="Напитки" value="Безалкогольные" required>
+            <span>Безалкогольные</span>
+          </label>
+        </div>
       </div>
 
       <div class="field">
