@@ -261,6 +261,15 @@
     padding:min(18vh,150px) 8vw;
     position:relative;
   }
+  .section::before{
+    content:'';
+    position:absolute;
+    top:0; left:50%;
+    transform:translateX(-50%);
+    width:min(120px, 30%);
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--gold-line), transparent);
+  }
   .section-narrow{
     max-width:680px;
     margin:0 auto;
@@ -796,7 +805,27 @@
         <div class="field-arrow"></div>
       </div>
 
-      <div id="drinks-per-guest"></div>
+      <div class="field">
+        <label>Какие напитки будут пить от вашей пары / семьи?</label>
+        <div class="radio-row">
+          <label class="radio-option">
+            <input type="checkbox" name="Напитки" value="Вино белое">
+            <span>Вино белое</span>
+          </label>
+          <label class="radio-option">
+            <input type="checkbox" name="Напитки" value="Вино красное">
+            <span>Вино красное</span>
+          </label>
+          <label class="radio-option">
+            <input type="checkbox" name="Напитки" value="Сок">
+            <span>Сок</span>
+          </label>
+          <label class="radio-option">
+            <input type="checkbox" name="Напитки" value="Водка">
+            <span>Водка</span>
+          </label>
+        </div>
+      </div>
 
       <div class="field">
         <label>Комментарий (необязательно)</label>
@@ -855,37 +884,6 @@
   }, { threshold:0.18 });
 
   document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>io.observe(el));
-
-  // RSVP: render one drink selector per guest based on selected count
-  const guestCountSelect = document.getElementById('guest-count');
-  const drinksContainer = document.getElementById('drinks-per-guest');
-  const drinkOptions = ['Сок', 'Вино белое', 'Вино красное', 'Водка'];
-
-  function renderDrinkFields(value){
-    drinksContainer.innerHTML = '';
-    if(!value) return;
-    const count = value === '5+' ? 5 : parseInt(value, 10);
-    for(let i = 1; i <= count; i++){
-      const field = document.createElement('div');
-      field.className = 'field';
-      const options = drinkOptions.map(d => `<option>${d}</option>`).join('');
-      field.innerHTML = `
-        <label>Напиток — гость ${i}</label>
-        <select name="Напиток — гость ${i}" required>
-          <option value="" disabled selected hidden>Выберите напиток</option>
-          ${options}
-        </select>
-        <div class="field-arrow"></div>
-      `;
-      drinksContainer.appendChild(field);
-    }
-  }
-
-  if(guestCountSelect){
-    guestCountSelect.addEventListener('change', function(){
-      renderDrinkFields(this.value);
-    });
-  }
 
   // RSVP form — submit quietly in the background, no redirect away from the site
   const rsvpForm = document.getElementById('rsvp-form');
