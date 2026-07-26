@@ -765,7 +765,7 @@
   <div class="section-narrow">
     <span class="kicker reveal">Подтверждение присутствия</span>
     <h2 class="section-title reveal reveal-delay-1">Будем рады узнать,<br>что вы будете с нами</h2>
-    <p class="quote-block reveal reveal-delay-2" style="font-size:16px;">Пожалуйста, заполните форму ниже до 6 августа 2026 года.</p>
+    <p class="quote-block reveal reveal-delay-2" style="font-size:16px;">Пожалуйста, заполните форму ниже до 1 августа 2026 года.</p>
 
     <form class="rsvp-form reveal reveal-delay-3" id="rsvp-form" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="bbc9e3d7-f791-4339-b05e-7e9982ee8d3e">
@@ -775,26 +775,26 @@
 
       <div class="field">
         <label>ФИО (укажите всех, за кого заполняете анкету)</label>
-        <input type="text" name="ФИО" placeholder="Иванов Иван и Анна, Семья Ивановых" required>
+        <input type="text" name="Guest_Name" placeholder="Иванов Иван, Иванова Анна" required>
       </div>
 
       <div class="field">
         <label>Сможете прийти?</label>
         <div class="radio-row">
           <label class="radio-option">
-            <input type="radio" name="Присутствие" value="Приду" required>
+            <input type="radio" name="Attendance" value="Приду" required>
             <span>Приду</span>
           </label>
           <label class="radio-option">
-            <input type="radio" name="Присутствие" value="Не приду" required>
-            <span>Не приду</span>
+            <input type="radio" name="Attendance" value="К сожалению, не получится" required>
+            <span>К сожалению, не получится</span>
           </label>
         </div>
       </div>
 
       <div class="field">
         <label>Количество человек (от пары / семьи)</label>
-        <select name="Количество гостей" id="guest-count" required>
+        <select name="Guest_Count" id="guest-count" required>
           <option value="" disabled selected hidden>Выберите количество</option>
           <option>1</option>
           <option>2</option>
@@ -809,19 +809,19 @@
         <label>Какие напитки будут пить от вашей пары / семьи?</label>
         <div class="radio-row">
           <label class="radio-option">
-            <input type="checkbox" name="Напитки" value="Вино белое">
+            <input type="checkbox" name="Drinks" value="Вино белое">
             <span>Вино белое</span>
           </label>
           <label class="radio-option">
-            <input type="checkbox" name="Напитки" value="Вино красное">
+            <input type="checkbox" name="Drinks" value="Вино красное">
             <span>Вино красное</span>
           </label>
           <label class="radio-option">
-            <input type="checkbox" name="Напитки" value="Сок">
+            <input type="checkbox" name="Drinks" value="Сок">
             <span>Сок</span>
           </label>
           <label class="radio-option">
-            <input type="checkbox" name="Напитки" value="Водка">
+            <input type="checkbox" name="Drinks" value="Водка">
             <span>Водка</span>
           </label>
         </div>
@@ -829,7 +829,7 @@
 
       <div class="field">
         <label>Комментарий (необязательно)</label>
-        <input type="text" name="Комментарий" placeholder="Аллергии, пожелания и т.д.">
+        <input type="text" name="Comment" placeholder="Аллергии, пожелания и т.д.">
       </div>
 
       <button type="submit" class="rsvp-submit" id="rsvp-submit-btn">Подтвердить</button>
