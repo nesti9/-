@@ -6,7 +6,7 @@
 <title>Анастасия & Денис — 26 августа 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&family=Marck+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Manrope:wght@300;400;500;600&family=Marck+Script&display=swap" rel="stylesheet">
 <style>
 
   :root{
@@ -37,12 +37,12 @@
   }
 
   h1,h2,h3, .display{
-    font-family:'Cormorant Garamond', serif;
-    font-weight:400;
-    letter-spacing:0.02em;
+    font-family:'Nunito', sans-serif;
+    font-weight:800;
+    letter-spacing:0.01em;
   }
 
-  .eb{ font-family:'EB Garamond', serif; }
+  .eb{ font-family:'Nunito', sans-serif; font-weight:400; }
 
   .script-heading{
     font-family:'Marck Script', cursive;
@@ -56,8 +56,7 @@
   .gift-note{
     max-width:40ch;
     margin:0 auto;
-    font-family:'EB Garamond', serif;
-    font-style:italic;
+    font-family:'Nunito', sans-serif;
     font-size:16px;
     line-height:1.75;
     color:var(--ink-soft);
@@ -131,7 +130,7 @@
   .bg-loc{
     background:
       linear-gradient(180deg, rgba(10,13,7,0.5), rgba(10,13,7,0.72)),
-      url('images/venue.jpg');
+      url('images/venue.jpeg');
     background-size: cover;
     background-position: 50% 42%;
   }
@@ -172,7 +171,7 @@
     padding:0 6vw;
   }
   .hero-eyebrow{
-    font-family:'EB Garamond', serif;
+    font-family:'Nunito', sans-serif;
     font-style:italic;
     font-size:clamp(13px,1.4vw,16px);
     letter-spacing:0.24em;
@@ -209,7 +208,7 @@
     margin:34px auto;
   }
   .hero-tagline{
-    font-family:'EB Garamond', serif;
+    font-family:'Nunito', sans-serif;
     font-style:italic;
     font-size:clamp(16px,2vw,20px);
     color:var(--ivory);
@@ -268,8 +267,7 @@
   }
 
   .quote-block{
-    font-family:'EB Garamond', serif;
-    font-style:italic;
+    font-family:'Nunito', sans-serif;
     font-size:clamp(20px,2.6vw,30px);
     line-height:1.65;
     color:var(--ink-soft);
@@ -298,54 +296,10 @@
     opacity:0.55;
   }
 
-  /* ---------- format section ---------- */
-  .format-grid{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:clamp(28px,6vw,64px);
-    max-width:520px;
-    margin:56px auto 40px;
-  }
-  .format-divider{
-    width:1px;
-    height:64px;
-    background:linear-gradient(var(--gold-line), rgba(92,107,69,0.5), var(--gold-line));
-    opacity:0.7;
-    flex-shrink:0;
-  }
-  @media(max-width:520px){
-    .format-grid{ gap:20px; }
-    .format-divider{ height:48px; }
-  }
-
-  .format-item{
-    text-align:center;
-    flex:1;
-    max-width:150px;
-  }
-  .format-mark{
-    width:52px; height:52px;
-    margin:0 auto 20px;
-    border:1px solid var(--olive);
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    opacity:0.8;
-    transition: transform .5s var(--ease), opacity .5s var(--ease);
-  }
-  .format-item:hover .format-mark{ transform:translateY(-3px); opacity:1; }
-  .format-mark svg{ width:21px; height:21px; stroke:var(--olive); fill:none; }
-  .format-label{
-    font-family:'Cormorant Garamond', serif;
-    font-size:23px;
-    color:var(--deep);
-    letter-spacing:0.02em;
-  }
-
+  /* ---------- location ---------- */
   .weather-note{
     margin-top:44px;
-    font-family:'EB Garamond', serif;
-    font-style:italic;
+    font-family:'Nunito', sans-serif;
     font-size:15px;
     line-height:1.7;
     color:var(--ink-soft);
@@ -355,40 +309,6 @@
     opacity:0.9;
   }
 
-  .detail-grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:44px 34px;
-    max-width:580px;
-    margin:52px auto 0;
-  }
-  .detail-item{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-    width:112px;
-  }
-  .detail-mark{
-    width:50px; height:50px;
-    border:1px solid var(--olive);
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    opacity:0.8;
-    transition: transform .5s var(--ease), opacity .5s var(--ease);
-  }
-  .detail-item:hover .detail-mark{ transform:translateY(-3px); opacity:1; }
-  .detail-mark svg{ width:20px; height:20px; stroke:var(--olive); fill:none; }
-  .detail-label{
-    font-family:'Cormorant Garamond', serif;
-    font-size:17px;
-    color:var(--deep);
-    text-align:center;
-    line-height:1.25;
-  }
-
-  /* ---------- location ---------- */
   .location-card{
     position:relative;
     z-index:2;
@@ -402,141 +322,103 @@
   .location-card .kicker{ color:var(--sage); }
   .location-card .section-title{ color:var(--cream); }
   .location-card p{
-    font-family:'EB Garamond', serif;
-    font-style:italic;
+    font-family:'Nunito', sans-serif;
     font-size:17px;
     color:var(--ivory);
     opacity:0.85;
   }
 
-  .map-link{
+  .map-button{
     display:inline-block;
-    margin-top:28px;
+    margin-top:32px;
+    padding:15px 38px;
+    border:1px solid rgba(248,245,240,0.6);
+    border-radius:999px;
     font-family:'Manrope',sans-serif;
     font-size:11.5px;
     letter-spacing:0.2em;
     text-transform:uppercase;
     color:var(--cream);
     text-decoration:none;
-    border-bottom:1px solid rgba(248,245,240,0.55);
-    padding-bottom:6px;
-    transition: border-color .4s var(--ease), opacity .4s var(--ease);
+    transition: background .4s var(--ease), color .4s var(--ease);
   }
-  .map-link:hover{ border-color:var(--cream); opacity:0.85; }
+  .map-button:hover{ background:var(--cream); color:var(--deep); }
 
-  /* ---------- schedule timeline ---------- */
+  /* ---------- schedule plan list ---------- */
   .timeline{
-    max-width:340px;
+    max-width:480px;
     margin:56px auto 0;
     text-align:left;
-    position:relative;
-  }
-  .timeline::before{
-    content:'';
-    position:absolute;
-    left:7px; top:6px; bottom:6px;
-    width:1px;
-    background: linear-gradient(var(--gold-line), rgba(92,107,69,0.55), var(--gold-line));
   }
   .timeline-item{
-    position:relative;
-    padding-left:36px;
-    margin-bottom:36px;
+    display:flex;
+    align-items:flex-start;
+    gap:28px;
+    padding:26px 0;
+    border-bottom:1px solid rgba(92,107,69,0.22);
   }
-  .timeline-item:last-child{ margin-bottom:0; }
-  .timeline-item::before{
-    content:'';
-    position:absolute;
-    left:0; top:6px;
-    width:15px; height:15px;
-    border-radius:50%;
-    border:1px solid var(--olive);
-    background:var(--cream);
-  }
+  .timeline-item:first-child{ padding-top:0; }
+  .timeline-item:last-child{ border-bottom:none; padding-bottom:0; }
   .timeline-time{
     font-family:'Cormorant Garamond', serif;
-    font-size:27px;
-    color:var(--deep);
-    line-height:1.1;
-  }
-  .timeline-text{
-    font-family:'EB Garamond', serif;
     font-style:italic;
+    font-size:24px;
+    color:var(--olive);
+    line-height:1.3;
+    min-width:64px;
+    flex-shrink:0;
+  }
+  .timeline-title{
+    font-family:'Nunito', sans-serif;
+    font-size:21px;
+    font-weight:700;
+    color:var(--deep);
+  }
+  .timeline-desc{
+    font-family:'Nunito', sans-serif;
     font-size:15px;
+    line-height:1.6;
     color:var(--ink-soft);
-    margin-top:5px;
+    margin-top:8px;
   }
-
-  /* ---------- dress code ---------- */
-  .dress-exclude{
-    font-family:'Manrope',sans-serif;
-    font-size:13px;
-    letter-spacing:0.08em;
-    color:var(--ink-soft);
-    margin:22px 0 50px;
-  }
-  .dress-exclude b{ color:var(--deep); font-weight:500; }
-
-  .swatch-row{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:34px 30px;
-    max-width:640px;
-    margin:0 auto;
-  }
-  .swatch{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:14px;
-    width:96px;
-  }
-  .swatch-circle{
-    width:58px; height:58px;
-    border-radius:50%;
-    box-shadow:0 6px 16px rgba(60,60,40,0.16), inset 0 0 0 1px rgba(0,0,0,0.06);
-    transition: transform .5s var(--ease);
-  }
-  .swatch:hover .swatch-circle{ transform:translateY(-4px); }
-  .swatch-name{
-    font-family:'EB Garamond', serif;
-    font-style:italic;
-    font-size:13.5px;
-    color:var(--ink-soft);
-    text-align:center;
-  }
-
-  /* ---------- countdown ---------- */
-  .countdown-row{
-    display:flex;
-    justify-content:center;
-    gap:clamp(18px,4vw,48px);
-    margin-top:48px;
-    flex-wrap:wrap;
-  }
-  .countdown-cell{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    min-width:72px;
-  }
-  .countdown-num{
-    font-family:'Cormorant Garamond', serif;
-    font-size:clamp(40px,6vw,64px);
-    font-weight:400;
-    color:var(--deep);
-    line-height:1;
-    font-variant-numeric: tabular-nums;
-  }
-  .countdown-label{
+  .timeline-caption{
     font-family:'Manrope',sans-serif;
     font-size:10.5px;
-    letter-spacing:0.22em;
+    letter-spacing:0.14em;
     text-transform:uppercase;
-    color:var(--ink-soft);
+    color:var(--olive);
     opacity:0.75;
+    margin-top:12px;
+  }
+
+  /* ---------- date announcement ---------- */
+  .bg-date{
+    background:
+      linear-gradient(180deg, rgba(10,14,8,0.42) 0%, rgba(8,11,6,0.72) 100%),
+      url('images/date.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .date-block{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:var(--cream);
+  }
+  .date-numbers{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(64px,14vw,140px);
+    line-height:0.95;
+    margin:22px 0 30px;
+  }
+  .date-caption{
+    font-family:'Manrope',sans-serif;
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--beige);
   }
 
   /* ---------- RSVP form ---------- */
@@ -567,7 +449,7 @@
     border:none;
     border-bottom:1px solid rgba(92,107,69,0.4);
     padding:10px 2px 12px;
-    font-family:'EB Garamond', serif;
+    font-family:'Nunito', sans-serif;
     font-size:17px;
     color:var(--deep);
     outline:none;
@@ -614,7 +496,7 @@
     text-align:center;
     padding:14px 10px;
     border:1px solid rgba(92,107,69,0.4);
-    font-family:'EB Garamond', serif;
+    font-family:'Nunito', sans-serif;
     font-size:15.5px;
     color:var(--ink-soft);
     transition: all .35s var(--ease);
@@ -648,7 +530,7 @@
   .rsvp-note{
     margin-top:22px;
     text-align:center;
-    font-family:'EB Garamond', serif;
+    font-family:'Nunito', sans-serif;
     font-style:italic;
     font-size:13.5px;
     color:var(--ink-soft);
@@ -677,8 +559,7 @@
     margin-bottom:12px;
   }
   .rsvp-success p{
-    font-family:'EB Garamond', serif;
-    font-style:italic;
+    font-family:'Nunito', sans-serif;
     font-size:15px;
     color:var(--ink-soft);
     line-height:1.6;
@@ -705,7 +586,7 @@
     margin-bottom:26px;
   }
   .final-sign{
-    font-family:'EB Garamond', serif;
+    font-family:'Nunito', sans-serif;
     font-style:italic;
     font-size:16px;
     color:var(--beige);
@@ -780,91 +661,44 @@
   </div>
 </section>
 
-<!-- ================= FORMAT ================= -->
+<!-- ================= PROGRAM ================= -->
 <section class="section" style="background:var(--ivory);">
   <div class="section-narrow">
-    <span class="kicker reveal">Формат мероприятия</span>
-    <h2 class="section-title reveal reveal-delay-1">Церемония на открытом воздухе<br>и праздничный банкет</h2>
-    <p class="quote-block reveal reveal-delay-2" style="font-size:16px; max-width:40ch; margin:0 auto;">Сначала — тёплая церемония под открытым небом, а затем праздничный вечер с рассадкой, музыкой и банкетом.</p>
-
-    <div class="format-grid">
-      <div class="format-item reveal reveal-delay-2">
-        <div class="format-mark">
-          <svg viewBox="0 0 24 24"><path d="M7 3h10l-1.2 6.5a3.8 3.8 0 0 1-3.8 3.1 3.8 3.8 0 0 1-3.8-3.1L7 3z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12.6V19M8.5 19h7" stroke-linecap="round"/></svg>
-        </div>
-        <div class="format-label">Фуршет</div>
-      </div>
-      <div class="format-divider"></div>
-      <div class="format-item reveal reveal-delay-3">
-        <div class="format-mark">
-          <svg viewBox="0 0 24 24"><path d="M4 8.5h2.6L8 6h8l1.4 2.5H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.1"/></svg>
-        </div>
-        <div class="format-label">Фотосессия</div>
-      </div>
-      <div class="format-divider"></div>
-      <div class="format-item reveal reveal-delay-3">
-        <div class="format-mark">
-          <svg viewBox="0 0 24 24"><path d="M12 3v11M12 14a4 4 0 0 0 4-4V5H8v5a4 4 0 0 0 4 4zM8 5H6.5a2 2 0 0 0 0 4H8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 21h8M12 14v7" stroke-linecap="round"/></svg>
-        </div>
-        <div class="format-label">Банкет</div>
-      </div>
-    </div>
-
-    <p class="weather-note reveal">Церемония пройдёт на открытой площадке. Рекомендуем учитывать погодные условия при выборе обуви и верхней одежды.</p>
-  </div>
-</section>
-
-<!-- ================= SCHEDULE ================= -->
-<section class="section" style="background:var(--cream);">
-  <div class="section-narrow">
     <span class="kicker reveal">Программа дня</span>
-    <h2 class="section-title reveal reveal-delay-1">14:00 — 22:00</h2>
+    <h2 class="section-title reveal reveal-delay-1">План дня</h2>
 
     <div class="timeline reveal reveal-delay-2">
       <div class="timeline-item">
         <div class="timeline-time">14:00</div>
-        <div class="timeline-text">Сбор гостей, фуршет</div>
+        <div class="timeline-body">
+          <div class="timeline-title">Сбор гостей</div>
+          <p class="timeline-desc">Наш день начнётся со встречи с вами — лёгкого фуршета и тёплого общения перед церемонией.</p>
+        </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-time">15:00</div>
-        <div class="timeline-text">Церемония, фотосессия</div>
+        <div class="timeline-body">
+          <div class="timeline-title">Церемония</div>
+          <p class="timeline-desc">Церемония под открытым небом на территории «Астория Плюс» — самый трогательный момент дня. После неё — фотографии на память.</p>
+        </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-time">16:00 – 22:00</div>
-        <div class="timeline-text">Банкет</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= DETAILS ================= -->
-<section class="section" style="background:var(--cream);">
-  <div class="section-narrow">
-    <span class="kicker reveal">Детали дня</span>
-    <h2 class="section-title reveal reveal-delay-1">Что ещё вас ждёт</h2>
-
-    <div class="detail-grid reveal reveal-delay-2">
-      <div class="detail-item">
-        <div class="detail-mark">
-          <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="timeline-time">16:00</div>
+        <div class="timeline-body">
+          <div class="timeline-title">Банкет</div>
+          <p class="timeline-desc">Начинается праздничная банкетная часть — тёплая атмосфера, музыка и радость, которую нам хочется разделить с вами.</p>
         </div>
-        <div class="detail-label">Ведущий</div>
       </div>
-      <div class="detail-item">
-        <div class="detail-mark">
-          <svg viewBox="0 0 24 24"><path d="M4 8.5h2.6L8 6h8l1.4 2.5H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.1"/></svg>
+      <div class="timeline-item">
+        <div class="timeline-time">22:00</div>
+        <div class="timeline-body">
+          <div class="timeline-title">Завершение</div>
+          <p class="timeline-desc">Наш праздник подходит к концу — спасибо, что были с нами в этот особенный день.</p>
         </div>
-        <div class="detail-label">Фотограф</div>
-      </div>
-      <div class="detail-item">
-        <div class="detail-mark">
-          <svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.4L20 9l-4.4 3.6L17 18l-5-3.2L7 18l1.4-5.4L4 9l5.8-.6L12 3z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="detail-label">Интерактив</div>
       </div>
     </div>
 
-    <p class="weather-note reveal reveal-delay-3">Викторина, альбом пожеланий и сувениры — на столиках рядом с фуршетом.</p>
+    <p class="weather-note reveal">Церемония пройдёт на открытой площадке — рекомендуем учитывать погоду при выборе обуви и верхней одежды. Ведущий и фотограф будут с вами весь день, а на столиках рядом с фуршетом вас ждёт небольшой интерактив.</p>
   </div>
 </section>
 
@@ -875,9 +709,9 @@
 
   <div class="location-card reveal">
     <span class="kicker">Место проведения</span>
-    <h2 class="section-title">«Астория плюс»</h2>
-    <p>г. Барнаул, ул. 5-й Кооперативный проезд, 61а</p>
-    <a class="map-link" href="https://yandex.ru/maps/?text=Барнаул%2C%20ул.%205-й%20Кооперативный%20проезд%2C%2061а" target="_blank" rel="noopener">Посмотреть на карте →</a>
+    <h2 class="section-title">Астория Плюс</h2>
+    <p>г. Барнаул,<br>ул. 5-й Кооперативный проезд, 61а</p>
+    <a class="map-button" href="https://2gis.ru/barnaul/search/5-й%20Кооперативный%20проезд%2C%2061а" target="_blank" rel="noopener">Открыть на карте</a>
   </div>
 </section>
 
@@ -890,27 +724,29 @@
   </div>
 </section>
 
-<!-- ================= COUNTDOWN ================= -->
-<section class="section" style="background:var(--ivory);">
-  <div class="section-narrow">
-    <span class="kicker reveal">До нашего дня осталось</span>
-    <h2 class="section-title reveal reveal-delay-1">Мы считаем дни</h2>
+<!-- ================= EVENT DATE ================= -->
+<section class="scene" style="min-height:85vh;">
+  <div class="zoom-bg bg-date"></div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
 
-    <div class="countdown-row reveal reveal-delay-2" id="countdown">
-      <div class="countdown-cell"><div class="countdown-num" id="cd-days">00</div><div class="countdown-label">Дней</div></div>
-      <div class="countdown-cell"><div class="countdown-num" id="cd-hours">00</div><div class="countdown-label">Часов</div></div>
-      <div class="countdown-cell"><div class="countdown-num" id="cd-mins">00</div><div class="countdown-label">Минут</div></div>
-      <div class="countdown-cell"><div class="countdown-num" id="cd-secs">00</div><div class="countdown-label">Секунд</div></div>
+  <div class="date-block reveal">
+    <span class="kicker" style="color:var(--sage);">Дата торжества</span>
+    <div class="date-numbers">
+      <div>26</div>
+      <div>08</div>
+      <div>26</div>
     </div>
+    <div class="date-caption">Суббота, Барнаул</div>
   </div>
 </section>
 
 <!-- ================= DRESS CODE ================= -->
 <section class="section" style="background:var(--cream);">
   <div class="section-narrow">
-    <span class="kicker reveal">Dress code</span>
-    <h2 class="section-title reveal reveal-delay-1">Нам будет очень приятно,<br>если вы поддержите атмосферу нашего праздника</h2>
-    <p class="gift-note reveal reveal-delay-2">Просим избегать полностью белого и полностью чёрного образа.<br><br>Мужские костюмы чёрного цвета — уместны, а лёгкие чёрно-белые детали в образе только приветствуются.</p>
+    <span class="kicker reveal">Пожелания к образу</span>
+    <h2 class="section-title reveal reveal-delay-1">Дресс-код</h2>
+    <p class="gift-note reveal reveal-delay-2">Нам будет приятно, если вы поддержите атмосферу нашего дня естественными, благородными оттенками — в духе тёплой зелени и натуральных тонов.<br><br>Белый и чёрный цвета в образе целиком мы просим не использовать — эти оттенки мы оставляем для себя. А вот отдельные детали в белом или чёрном вполне уместны.<br><br>Мужчинам чёрный костюм тоже разрешён — это исключение мы приветствуем.</p>
   </div>
 </section>
 
@@ -928,8 +764,8 @@
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
       <div class="field">
-        <label>ФИО</label>
-        <input type="text" name="ФИО" placeholder="Иванов Иван" required>
+        <label>ФИО (укажите всех, за кого заполняете анкету)</label>
+        <input type="text" name="ФИО" placeholder="Иванов Иван, Иванова Анна" required>
       </div>
 
       <div class="field">
@@ -948,7 +784,7 @@
 
       <div class="field">
         <label>Количество человек (от пары / семьи)</label>
-        <select name="Количество гостей" required>
+        <select name="Количество гостей" id="guest-count" required>
           <option value="" disabled selected hidden>Выберите количество</option>
           <option>1</option>
           <option>2</option>
@@ -959,19 +795,7 @@
         <div class="field-arrow"></div>
       </div>
 
-      <div class="field">
-        <label>Что предпочитаете из напитков?</label>
-        <div class="radio-row">
-          <label class="radio-option">
-            <input type="radio" name="Напитки" value="Алкогольные" required>
-            <span>Алкогольные</span>
-          </label>
-          <label class="radio-option">
-            <input type="radio" name="Напитки" value="Безалкогольные" required>
-            <span>Безалкогольные</span>
-          </label>
-        </div>
-      </div>
+      <div id="drinks-per-guest"></div>
 
       <div class="field">
         <label>Комментарий (необязательно)</label>
@@ -1031,34 +855,36 @@
 
   document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>io.observe(el));
 
-  // countdown to the wedding day
-  const weddingDate = new Date('2026-08-26T15:00:00+03:00').getTime();
-  function pad(n){ return String(n).padStart(2,'0'); }
-  function tickCountdown(){
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
-    if(diff <= 0){
-      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>{
-        const el = document.getElementById(id);
-        if(el) el.textContent = '00';
-      });
-      return;
+  // RSVP: render one drink selector per guest based on selected count
+  const guestCountSelect = document.getElementById('guest-count');
+  const drinksContainer = document.getElementById('drinks-per-guest');
+  const drinkOptions = ['Сок', 'Вино белое', 'Вино красное', 'Водка'];
+
+  function renderDrinkFields(value){
+    drinksContainer.innerHTML = '';
+    if(!value) return;
+    const count = value === '5+' ? 5 : parseInt(value, 10);
+    for(let i = 1; i <= count; i++){
+      const field = document.createElement('div');
+      field.className = 'field';
+      const options = drinkOptions.map(d => `<option>${d}</option>`).join('');
+      field.innerHTML = `
+        <label>Напиток — гость ${i}</label>
+        <select name="Напиток — гость ${i}" required>
+          <option value="" disabled selected hidden>Выберите напиток</option>
+          ${options}
+        </select>
+        <div class="field-arrow"></div>
+      `;
+      drinksContainer.appendChild(field);
     }
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
-    const d = document.getElementById('cd-days');
-    const h = document.getElementById('cd-hours');
-    const m = document.getElementById('cd-mins');
-    const s = document.getElementById('cd-secs');
-    if(d) d.textContent = pad(days);
-    if(h) h.textContent = pad(hours);
-    if(m) m.textContent = pad(mins);
-    if(s) s.textContent = pad(secs);
   }
-  tickCountdown();
-  setInterval(tickCountdown, 1000);
+
+  if(guestCountSelect){
+    guestCountSelect.addEventListener('change', function(){
+      renderDrinkFields(this.value);
+    });
+  }
 
   // RSVP form — submit quietly in the background, no redirect away from the site
   const rsvpForm = document.getElementById('rsvp-form');
